@@ -35,16 +35,7 @@ def printinfo(DetailsPrinted):
     TotNetPay = 0.00
 ###################################################################
     # write the line of code to open Employees.txt file in read mode and assign to EmpFile
-FILENAME = "Employees.txt"
-
-def read_Empfile():
-    Empfile = []
-    with open(FILENAME) as file:
-        for line in file:
-            line = line.replace("\n", "")
-            Empfile.append(line)
-    return Employees   
-
+    EmpFile = open("Employees.txt", "r")
 
 
     while True:
@@ -60,12 +51,16 @@ def read_Empfile():
             continue  # skip next if statement and re-start loop
     while True:
         # write the line of code to read a record from EmpFile and assign it to EmpDetail
+        EmpDetail = EmpFile.read();
 
         if not EmpDetail:
             break
         #write the line of code to remove the carriage return from the end of the record read from the file
+        EmpDetail = EmpDetail.rstrip()
 
         #write the line of code to split the record read in on the pipe delimiter and assign it to EmpList
+        EmpList = 'Employees.txt'.split('|')
+
 
         fromdate = EmpList[0]
         if (str(rundate).upper() != "ALL"):
@@ -108,6 +103,7 @@ def PrintTotals(EmpTotals):
 
 if __name__ == "__main__":
     # write the line of code to open a file Employees.txt in append mode and assign it to EmpFile
+    EmpFile = open("Employees.txt", "a")
 
     #EmpDetailList = []
     EmpTotals = {}
@@ -123,10 +119,16 @@ if __name__ == "__main__":
         ##############################################################
         # write the line of code that will concatenate fromdate, todate, empname, hours, hourlyrate, and taxrate. Pipe delimit each value and add a carriage return to the end of the line
         # and assign the line to EmpDetail
+        
+        EmpDetail = EmpList.join(fromdate, '|', todate, '|', empname, '|', str(hours), '|', str(hourlyrate), '|', str(taxrate), '\n')
  
-        # write the liie of code that will write EmpDetail to EmpFile
-    
+        # write the line of code that will write EmpDetail to EmpFile
+        EmpFile = EmpDetail
+        EmpDetail.append(EmpFile)
+        write_EmpFile(EmpFile)
+
     # write the line of code to close EmpFile
+    EmpFile.close
 
     printinfo(DetailsPrinted)
 
