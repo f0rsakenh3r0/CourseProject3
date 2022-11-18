@@ -120,7 +120,7 @@ if __name__ == "__main__":
         # write the line of code that will concatenate fromdate, todate, empname, hours, hourlyrate, and taxrate. Pipe delimit each value and add a carriage return to the end of the line
         # and assign the line to EmpDetail
         
-        EmpDetail = EmpList.join(fromdate, '|', todate, '|', empname, '|', str(hours), '|', str(hourlyrate), '|', str(taxrate), '\n')
+        EmpDetail = EmpList.join(fromdate, '|', todate, '|', empname, '|', str(hours), '|', str(hourlyrate), '|', str(taxrate), '\n') 
  
         # write the line of code that will write EmpDetail to EmpFile
         EmpFile = EmpDetail
