@@ -35,8 +35,7 @@ def printinfo(DetailsPrinted):
     TotNetPay = 0.00
 ###################################################################
     # write the line of code to open Employees.txt file in read mode and assign to EmpFile
-    open("Employees.txt", "r")
-    EmpFile.read()
+    EmpFile = open("Employees.txt", "r")
     
 
 
@@ -53,7 +52,7 @@ def printinfo(DetailsPrinted):
             continue  # skip next if statement and re-start loop
     while True:
         # write the line of code to read a record from EmpFile and assign it to EmpDetail
-        EmpDetail = EmpFile.read( );
+        EmpDetail = EmpFile.read();
 
         if not EmpDetail:
             break
@@ -106,6 +105,8 @@ def PrintTotals(EmpTotals):
 if __name__ == "__main__":
     # write the line of code to open a file Employees.txt in append mode and assign it to EmpFile
     EmpFile = open("Employees.txt", "a")
+    
+    
 
     #EmpDetailList = []
     EmpTotals = {}
@@ -122,16 +123,17 @@ if __name__ == "__main__":
         # write the line of code that will concatenate fromdate, todate, empname, hours, hourlyrate, and taxrate. Pipe delimit each value and add a carriage return to the end of the line
         # and assign the line to EmpDetail
         
-        EmpDetail = [fromdate, todate, empname, str(hours), str(hourlyrate), str(taxrate)]
-        '|'.join(EmpDetail)
+        EmpDetail = ('|'.join([fromdate, todate, empname, str(hours), str(hourlyrate), str(taxrate)]))
+        
+        
  
         # write the line of code that will write EmpDetail to EmpFile
-        EmpFile = EmpDetail
-        EmpDetail.append(EmpFile)
+        EmpFile.write(EmpDetail)
+        
         
 
     # write the line of code to close EmpFile
-    EmpFile.close
+    EmpFile.close() 
 
     printinfo(DetailsPrinted)
 
