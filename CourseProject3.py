@@ -60,7 +60,7 @@ def printinfo(DetailsPrinted):
         EmpDetail = EmpDetail.rstrip()
 
         #write the line of code to split the record read in on the pipe delimiter and assign it to EmpList
-        EmpList = 'Employees.txt'.split('|')
+        EmpList = EmpDetail.split('|')
 
 
         fromdate = EmpList[0]
