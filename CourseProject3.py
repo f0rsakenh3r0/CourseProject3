@@ -52,12 +52,15 @@ def printinfo(DetailsPrinted):
             continue  # skip next if statement and re-start loop
     while True:
         # write the line of code to read a record from EmpFile and assign it to EmpDetail
-        EmpDetail = EmpFile.read();
+        EmpDetail = EmpFile.readline()
+
 
         if not EmpDetail:
             break
         #write the line of code to remove the carriage return from the end of the record read from the file
-        EmpDetail = EmpDetail.rstrip('\r')
+        EmpDetail = EmpDetail.replace('\n', "")
+        
+
 
         #write the line of code to split the record read in on the pipe delimiter and assign it to EmpList
         EmpList = EmpDetail.split('|')
@@ -123,13 +126,14 @@ if __name__ == "__main__":
         # write the line of code that will concatenate fromdate, todate, empname, hours, hourlyrate, and taxrate. Pipe delimit each value and add a carriage return to the end of the line
         # and assign the line to EmpDetail
         
-        EmpDetail = ('|'.join([fromdate, todate, empname, str(hours), str(hourlyrate), str(taxrate)]) + "\r")
+        EmpDetail = ('|'.join([fromdate, todate, empname, str(hours), str(hourlyrate), str(taxrate)])) + ("\n")
         
         
  
         # write the line of code that will write EmpDetail to EmpFile
         EmpFile.write(EmpDetail)
-        
+         
+            
         
 
     # write the line of code to close EmpFile
