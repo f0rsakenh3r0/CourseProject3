@@ -109,8 +109,6 @@ if __name__ == "__main__":
     # write the line of code to open a file Employees.txt in append mode and assign it to EmpFile
     EmpFile = open("Employees.txt", "a")
     
-    
-
     #EmpDetailList = []
     EmpTotals = {}
     DetailsPrinted = False
@@ -126,15 +124,10 @@ if __name__ == "__main__":
         # write the line of code that will concatenate fromdate, todate, empname, hours, hourlyrate, and taxrate. Pipe delimit each value and add a carriage return to the end of the line
         # and assign the line to EmpDetail
         
-        EmpDetail = ('|'.join([fromdate, todate, empname, str(hours), str(hourlyrate), str(taxrate)])) + ("\n")
-        
-        
+        EmpDetail = ('|'.join([fromdate, todate, empname, str(hours), str(hourlyrate), str(taxrate)])) + ("\n") 
  
         # write the line of code that will write EmpDetail to EmpFile
         EmpFile.write(EmpDetail)
-         
-            
-        
 
     # write the line of code to close EmpFile
     EmpFile.close() 
